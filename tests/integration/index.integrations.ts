@@ -14,4 +14,16 @@ describe('Index API', () => {
         done();
       });
   });
+
+  it('should throw error for wrong route', (done) => {
+    request(app)
+      .post('/api/v1/new')
+      .set('Accept', 'application/json')
+      .end((req, res) => {
+        expect(res.statusCode).to.be.equal(404);
+        expect(res.body.code).to.be.equal(404);
+        expect(res.body.status).to.be.equal('error');
+        done();
+      });
+  });
 });
