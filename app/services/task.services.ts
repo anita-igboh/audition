@@ -13,3 +13,12 @@ import { fetchSinglePhase } from './phase.services';
     });
     return phase;
   };
+
+  export const fetchPhaseTask = (taskId: number, phaseId: number) => {
+    const phase = fetchSinglePhase(phaseId);
+    const task = phase.tasks.find((el) => el.taskId === Number(taskId));
+    if (!task) {
+      throw Error('Task not found', 404);
+    }
+    return task;
+  };

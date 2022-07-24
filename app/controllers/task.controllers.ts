@@ -11,4 +11,14 @@ export const createTask = (req: Request, res: Response, next: NextFunction) => {
     } catch (error) {
         return next(error);
     }
-    };
+};
+
+export const fetchPhaseTask = (req: Request, res: Response, next: NextFunction) => {
+    try {
+      const { params: { taskId, phaseId } } = req;
+      const data = service.fetchPhaseTask(Number(taskId), Number(phaseId));
+      return successResponse(res, 'Task fetched successfully', 200, data);
+    } catch (error) {
+      return next(error);
+    }
+  };
