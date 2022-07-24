@@ -23,4 +23,7 @@ router.post('/phases', phaseValidator.createPhase, phaseController.createPhase);
 
 router.post('/phases/tasks', taskValidator.createTask, taskController.createTask);
 
+router.get('/phases/tasks/:phaseId/:taskId', taskValidator.phaseTaskParams, taskController.fetchPhaseTask);
+
+
 export default router;
