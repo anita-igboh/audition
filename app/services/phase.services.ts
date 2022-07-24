@@ -23,8 +23,7 @@ export const createPhase = (phaseName: string) => {
       isDone: false,
       tasks: [],
     };
-  
     phasesDummy.push(newPhase);
-    
     return newPhase;
   };
+
